@@ -236,16 +236,20 @@ func _on_fix_zero_relations_pressed() -> void:
 	if number_of_new_backups > 0:
 		backup_feedback_label.modulate = Color(0.5, 1.0, 0.5, 1.0)
 		backup_feedback_label.text = (
-				"+" + str(number_of_new_backups) + " backups"
+				"+" + str(number_of_new_backups) + " backup"
 		)
+		if number_of_new_backups != 1:
+			backup_feedback_label.text += "s"
 		backup_feedback_label.show()
 		backup_fb_animation.stop()
 		backup_fb_animation.play("feedback_fadeout")
 	
 	feedback_label.modulate = Color(0.5, 1.0, 0.5, 1.0)
 	feedback_label.text = (
-			"Fixed " + str(total_nans_removed) + " bugged relations"
+			"Fixed " + str(total_nans_removed) + " bugged relation"
 	)
+	if total_nans_removed != 1:
+		feedback_label.text += "s"
 	feedback_label.show()
 	feedback_animation.stop()
 	feedback_animation.play("feedback_fadeout")
