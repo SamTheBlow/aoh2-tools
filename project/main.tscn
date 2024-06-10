@@ -98,7 +98,7 @@ anchor_right = 0.9
 anchor_bottom = 0.15
 text = "No folder selected"
 vertical_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="ErrorLabel" type="Label" parent="Control"]
 unique_name_in_owner = true
