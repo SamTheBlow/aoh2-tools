@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3 uid="uid://58xai2yrcjcr"]
+
+[ext_resource type="Script" path="res://game_info.gd" id="1_osxg4"]
+[ext_resource type="Theme" uid="uid://dbti7pijrmj3m" path="res://theme.tres" id="2_ksp7f"]
+[ext_resource type="ButtonGroup" uid="uid://n1r5yofly0lg" path="res://button_group.tres" id="2_qopyc"]
+
+[sub_resource type="Animation" id="Animation_4wftq"]
+resource_name = "feedback"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FeedbackColor:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3tjsq"]
+_data = {
+"feedback": SubResource("Animation_4wftq")
+}
+
+[node name="GameInfo" type="Control"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_osxg4")
+color_selected = Color(0.5, 0.5, 0.5, 0.752941)
+color_not_selected = Color(0.501961, 0.501961, 0.501961, 0.313726)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.611765, 0.611765, 0.611765, 0.501961)
+
+[node name="FeedbackColor" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0, 0)
+
+[node name="Text" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckBox" type="CheckBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_ksp7f")
+button_group = ExtResource("2_qopyc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_3tjsq")
+}
+
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]

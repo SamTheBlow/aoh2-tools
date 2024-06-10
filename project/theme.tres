@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dbti7pijrmj3m"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0yvms"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6gfgu"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_m3071"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oipd1"]
+
+[resource]
+CheckBox/icons/radio_checked = SubResource("PlaceholderTexture2D_0yvms")
+CheckBox/icons/radio_checked_disabled = SubResource("PlaceholderTexture2D_6gfgu")
+CheckBox/icons/radio_unchecked = SubResource("PlaceholderTexture2D_m3071")
+CheckBox/icons/radio_unchecked_disabled = SubResource("PlaceholderTexture2D_oipd1")
